@@ -1,0 +1,295 @@
+:root {
+  /* Light Mode */
+  --bg-color: #F9F9F9;
+  --primary-accent: #00BFFF;
+  --border-col: #eaeaea;
+  --secondary-accent: #9B59B6;
+  --surface-color: #FFFFFF;
+  --text-color: #1E1E1E;
+  --font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+.dark {
+  /* Dark Mode */
+  --bg-color: #121212;
+  --primary-accent: #00CFFF;
+  --border-col: #2A2A2A;
+  --secondary-accent: #BB86FC;
+  --surface-color: #1E1E1E;
+  --text-color: #F2F2F2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  flex-direction: column;
+}
+
+.navbar{
+  width: 100%;
+  height: 10%;
+  background-color: var(--surface-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2em;
+  font-size: 2.5em;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid;
+  border-color: var(--border-col);
+}
+.navbar p{
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  height: fit-content;
+}
+.navbar img{
+  height: 50px;
+  width: 50px;
+  filter: drop-shadow(1px 1px 1px black);
+}
+.middle{
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: row;
+}
+.sidebar{
+  transition: all 1s ease;
+  height: 100%;
+  width: 4%;
+  background-color: var(--surface-color);
+  border-right: 1px solid;
+  border-color: var(--border-col);
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menuBtn{
+  width: fit-content;
+  height: fit-content;
+  font-size: 2em;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.main{
+  background-color: var(--bg-color);
+  height: 100%;
+  width: 96%;
+  transition: all 1s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  touch-action: none;
+}
+.footer{
+  width: 100%;
+  height: 5%;
+  background-color: var(--bg-color);
+  border-top: 1px solid;
+  border-color: var(--border-col);
+  position: sticky;
+  font-size: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em;
+}
+.footer p{
+  margin: 0;
+  padding: 0;
+}
+.footer p a{
+  color: var(--text-color);
+}
+.closeBtn{
+  width: fit-content;
+  height: fit-content;
+  margin-top: 5px;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5em;
+  display: none;
+}
+
+.chatBox{
+  background: var(--bg-color);
+  width: 70%;
+  height: 84.5%;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  gap: 1em;
+  align-items: flex-end;
+}
+.chatBox::-webkit-scrollbar{
+  display: none;
+}
+.chatBox span{
+  background-color: var(--surface-color);
+  height: fit-content;
+  width: fit-content;
+  padding: 1em;
+  border-radius: 1em;
+}
+.typingBox{
+  background-color: var(--surface-color);
+  border: 1px solid;
+  border-color: var(--border-col);
+  border-radius: 35px;
+  width: 70%;
+  height: 15%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  overflow: hidden;
+}
+#txtBox{
+  height: 70%;
+  background-color: var(--surface-color);
+  width: 90%;
+  resize: none;
+  border: none;
+  font-size: 1.3em;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
+}
+#txtBox:focus{
+  outline: none;
+}
+#txtBox::placeholder{
+  color: var(--text-color);
+  opacity: 0.5;
+}
+#txtBox::-webkit-scrollbar{
+  display: none;
+}
+.micBtn{
+  width: fit-content;
+  height: fit-content;
+  font-size: 2em;
+}
+.no:hover{
+  color: var(--primary-accent);
+  cursor: pointer;
+}
+.sidebarBtns{
+  display: none;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: 30%;
+  height: 70%;
+  width: 100%;
+  align-items: center;
+}
+.sideBtn{
+  background-color: transparent;
+  color: var(--text-color); /* #1E1E1E */
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.sideBtn:hover{
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--primary-accent);
+}
+.dark .sideBtn:hover{
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+
+
+
+
+/* Container for the toggle */
+/* for now here, after i make settings page, i will move this to settings page */
+.theme-switch {
+  position: absolute;
+  display: inline-block;
+  bottom: 10px;
+  left: 10px;
+  width: 80px;
+  height: 40px;
+}
+
+/* Hide the checkbox */
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider base */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s;
+}
+
+/* Slider circle */
+.slider::before {
+  position: absolute;
+  content: "";
+  background-image: url(/Resources/moon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px 32px;
+  height: 35px;
+  width: 35px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+/* When checked (dark mode) */
+.theme-switch input:checked + .slider {
+  background-color: #00bfff;
+}
+
+.theme-switch input:checked + .slider::before {
+  transform: translateX(40px);
+  content: "";
+  background-image: url(/Resources/sun.png);
+  height: 35px;
+  width: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px 32px;
+  background-color: #00bfff;
+}

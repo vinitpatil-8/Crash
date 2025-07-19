@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="description" content="Crash is an advanced chatbot made using Python & Flask">
+    <link rel="stylesheet" href="chat.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resp.css">
+    <title>Chat with Crash</title>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="/Resources/Bot.png" alt="Bot">
+            <p>CRASH</p>
+        </div>
+
+
+
+        <div class="middle">
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <i class="fi fi-br-menu-burger menuBtn"></i>
+                <i class="fi fi-br-cross closeBtn"></i>
+                <div class="sidebarBtns">
+                    <button class="mode sideBtn"><i class="fi fi-br-house-chimney"></i> HOME</button>
+                    <button class="about-us sideBtn"><i class="fi fi-ts-info"></i> ABOUT US</button>
+                    <button class="settings sideBtn"><i class="fi fi-ss-settings"></i> SETTINGS</button>
+                    <button class="feedback sideBtn"><i class="fi fi-ts-email-feedback"></i> FEEDBACK</button>
+
+                    <!-- move to settings page afterwards -->
+                    <label class="theme-switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <!-- this whole part will be moved to settings page -->
+
+                </div>
+            </div>
+
+            <!-- main chat and typing area -->
+            <div class="main">
+                <div class="chatBox"></div>
+                <div class="typingBox">
+                    <textarea wrap="hard" autofocus autocapitalize="true" spellcheck="true" type="text" placeholder="Type a message..." name="command" id="txtBox"></textarea>
+                    <i class="fi fi-ss-circle-microphone micBtn no"></i>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="footer">
+            <!-- <p>Made with <span class="heart">♥</span> by <a href="https://github.com/vinitpatil-8">Vinit Patil</a></p> -->
+            <p class="made">Made by <a href="https://github.com/vinitpatil-8" target="_blank">Vinit Patil</a></p>
+            <p class="copyright">&copy; 2025 Crash. All rights reserved.</p>
+        </div>
+    </div>
+    <script src="chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+@media (max-width:768px) {
+    .sidebar{
+        width: 8%;
+    }
+    .navbar{
+        font-size: 2em;
+        height: 9%;
+    }
+    .middle{
+        height: 86%;
+    }
+    .navbar img{
+        height: 40px;
+        width: 40px;
+    }
+    .main{
+        width: 92%;
+    }
+    .typingBox , .chatBox{
+        width: 80%;
+    }
+    .typingBox{
+        border-radius: 28px;
+    }
+    #txtBox{
+        width: 80%;
+    }
+    .sideBtn{
+        padding: 0.6rem 0.7rem 0.6rem 0.7rem;
+    }
+    .sidebarBtns{
+        margin-top: 50%;
+        gap: 4em;
+    }
+}
+@media (max-width:430px) {
+    .sidebar{
+        width: 10%;
+    }
+    .menuBtn{
+        font-size: 1.7em;
+    }
+    .main{
+        width: 90%;
+    }
+    .middle{
+        height: 88%;
+    }
+    .navbar{
+        font-size: 1.8em;
+        height: 7%;
+    }
+    .navbar img{
+        height: 37px;
+        width: 37px;
+    }
+    .typingBox , .chatBox{
+        width: 90%;
+    }
+    .sideBtn{
+        font-size: 0.8rem;
+    }
+    .sidebarBtns{
+        margin-top: 60%;
+        gap: 2em;
+    }
+}
