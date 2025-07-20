@@ -260,7 +260,7 @@ body {
 .slider::before {
   position: absolute;
   content: "";
-  background-image: url(/Resources/moon.png);
+  background-image: url(/FrontEnd/Resources/moon.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 32px 32px;
@@ -285,7 +285,7 @@ body {
 .theme-switch input:checked + .slider::before {
   transform: translateX(40px);
   content: "";
-  background-image: url(/Resources/sun.png);
+  background-image: url(/FrontEnd/Resources/sun.png);
   height: 35px;
   width: 35px;
   background-repeat: no-repeat;
