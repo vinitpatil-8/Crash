@@ -8,6 +8,17 @@ let microphone = document.querySelector('.micBtn'); // Microphone
 let typingBox = document.querySelector('.typingBox'); // The whole typing area
 let sidebarBtns = document.querySelector('.sidebarBtns'); // Sidebar buttons area
 let winWidth = window.innerWidth; // Get the width of the window
+let loader = document.querySelector('.loading-screen'); // Loading Screen
+let mainContainer = document.querySelector('.container'); // Main Page
+
+// loading screen 
+function loadScreen() {
+    loader.style.display = "none";
+    mainContainer.style.display = "flex";
+}
+window.addEventListener("load", ()=>{
+    setTimeout(loadScreen, 3000)
+})
 
 
 menuBtn.addEventListener('click', () => {
@@ -134,6 +145,7 @@ main.addEventListener('touchend', () => {
 const toggle = document.getElementById('themeToggle');
 
 toggle.addEventListener('change', () => {
+  localStorage.setItem('lightMode', JSON.stringify(lightMode));
   document.body.classList.toggle('dark');
   microphone.classList.toggle('fi-ss-circle-microphone');
   microphone.classList.toggle('fi-ts-circle-microphone');

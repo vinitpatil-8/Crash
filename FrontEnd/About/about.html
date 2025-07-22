@@ -1,40 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="description" content="Crash is an advanced chatbot made using Python & Flask">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="about-resp.css">
     <title>About Us</title>
 </head>
+
 <body>
+
+    <!-- loading screen -->
+    <div class="loading-screen">
+        <div class="wrapped">
+            <div class="loading-container">
+                <div class="loading-text">
+                    <span>L</span>
+                    <span>O</span>
+                    <span>A</span>
+                    <span>D</span>
+                    <span>I</span>
+                    <span>N</span>
+                    <span>G</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="container">
         <!-- navbar -->
         <div class="navbar">
-            <p class="goBack"><i class="fi fi-br-arrow-left"></i> <span>HOME</span></p>
+            <p class="goBack" onclick="location.href='/FrontEnd/Chat/chat.html';"><i class="fi fi-br-arrow-left"></i> <span>HOME</span></p>
         </div>
 
         <!-- main info area -->
         <div class="main">
-            <h1>MEET THE MIND BEHIND CRASH</h1>
-            <div class="overview card">
-                <h3>Overview</h3>
-            </div>
-            <div class="about-dev card">
-                <h3>About The Dev</h3>
-            </div>
-            <div class="tech-stack card">
-                <h3>Tech Stack</h3>
-            </div>
-            <div class="vision card">
-                <h3>Vision</h3>
-            </div>
-            <div class="contact card">
-                <h3>Contact</h3>
+            <h1 class="page-heading">MEET THE MIND BEHIND <span>CRASH</span></h1>
+            <div class="card-area">
+                <div class="overview card">
+                    <h3 class="card-title">
+                        <img src="/FrontEnd/Resources/brain.svg" class="icon-heading" alt="Overview">
+                        Overview
+                    </h3>
+                    <p class="card-text">This chatbot is a personal project made to explore real-time AI conversations using Python and
+                        Flask.</p>
+                </div>
+                <div class="about-dev card">
+                    <h3 class="card-title">
+                        <img src="/FrontEnd/Resources/person.svg" class="icon-heading" alt="About The Dev">
+                        About The Dev
+                    </h3>
+                    <p class="card-text">Hi ! I'm Vinit, a student at XYZ University. <br> I live in Pune, Maharashtra. <br> I have a passion for AI, web tech, and building cool tools from scratch.</p>
+                </div>
+                <div class="tech-stack card">
+                    <h3 class="card-title">
+                        <img src="/FrontEnd/Resources/tools.svg" class="icon-heading" alt="Tech Stack">
+                        Tech Stack
+                    </h3>
+                    <ul class="card-list">
+                        <li>
+                            <img src="/FrontEnd/Resources/python.svg" class="tech-icon" alt="Python">
+                            Python + Flask
+                        </li>
+                        <li>
+                            <img src="/FrontEnd/Resources/html5.svg" class="tech-icon" alt="HTML">
+                            HTML/CSS/JS
+                        </li>
+                        <li>
+                            <img src="/FrontEnd/Resources/openai.svg" class="tech-icon" alt="OpenAI">
+                            OpenAI API
+                        </li>
+                    </ul>
+                </div>
+                <div class="vision card">
+                    <h3 class="card-title">
+                        <img src="/FrontEnd/Resources/eye.svg" class="icon-heading" alt="Vision">
+                        Vision
+                    </h3>
+                    <p class="card-text">The long-term goal is to create an open-source, modular AI assistant anyone can learn from or contribute to. Future features include voice input, personality customization, and memory.</p>
+
+                </div>
+                <div class="contact card">
+                    <h3 class="card-title">
+                        <img src="/FrontEnd/Resources/envelope.svg" class="icon-heading" alt="Contact">
+                        Contact
+                    </h3>
+                    <p class="card-text">Want to contribute or learn more? Visit the <a class="linky" href="https://github.com/vinitpatil-8/crash" target="_blank">GitHub Repository</a>.
+                    <br> <br> Feel free to reach out via email at <a class="linky" href="mailto:crashy204@gmail.com?subject=Hello&body=I saw your project and..." target="_blank">crashy204@gmail.com</a>.
+                    </p>
+
+                </div>
             </div>
         </div>
 
@@ -46,7 +108,8 @@
         </div>
 
 
-
+        <script src="about.js"></script>
     </div>
 </body>
+
 </html>

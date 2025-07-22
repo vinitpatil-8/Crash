@@ -2,6 +2,9 @@
     .sidebar{
         width: 8%;
     }
+    .loading-text{
+    font-size: 10vw;
+  }
     .navbar{
         font-size: 2em;
         height: 9%;
@@ -64,4 +67,7 @@
         margin-top: 60%;
         gap: 2em;
     }
+    .loading-text{
+    font-size: 12vw;
+  }
 }
