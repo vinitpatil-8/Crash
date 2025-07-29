@@ -145,7 +145,6 @@ main.addEventListener('touchend', () => {
 const toggle = document.getElementById('themeToggle');
 
 toggle.addEventListener('change', () => {
-  localStorage.setItem('lightMode', JSON.stringify(lightMode));
   document.body.classList.toggle('dark');
   microphone.classList.toggle('fi-ss-circle-microphone');
   microphone.classList.toggle('fi-ts-circle-microphone');

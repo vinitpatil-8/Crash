@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    .loading-text{
+    font-size: 10vw;
+  }
+}
+
+
+
+@media (max-width: 430px) {
+    .loading-text{
+    font-size: 12vw;
+  }   
+}
