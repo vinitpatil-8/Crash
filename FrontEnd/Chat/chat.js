@@ -10,6 +10,54 @@ let sidebarBtns = document.querySelector('.sidebarBtns'); // Sidebar buttons are
 let winWidth = window.innerWidth; // Get the width of the window
 let loader = document.querySelector('.loading-screen'); // Loading Screen
 let mainContainer = document.querySelector('.container'); // Main Page
+let val // User's Message
+
+// adding the contents of typing area to chat area
+textArea.addEventListener('keypress', function(event) {
+    if(event.key === 'Enter') {
+        event.preventDefault();
+        val = textArea.value.trim(); // Value of textArea
+        if (val !== '') {
+            displayMessage(val);
+            handleSendClick()
+            textArea.value = '';
+        }
+        return val
+    }
+});
+
+
+// Sending User's Message To BackEnd
+async function sendMessageToBot(message) {
+  const response = await fetch('http://127.0.0.1:5050/chat', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ message: message })
+  });
+
+  const data = await response.json();
+  return data.reply;
+}
+
+// Handling The Click
+async function handleSendClick() {
+    const botReply = await sendMessageToBot(val);
+    showBotReply(botReply);
+}
+
+// Showing Bot's Reply
+function showBotReply(message) {
+  const msg = document.createElement('span');
+  msg.className = 'bot-reply'; 
+  msg.textContent = message;
+  chatBox.appendChild(msg);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+
+
 
 // loading screen 
 function loadScreen() {
@@ -64,22 +112,13 @@ closeBtn.addEventListener('click', () => {
     
 });
 
-// adding the contents of typing area to chat area
-textArea.addEventListener('keypress', function(event) {
-    if(event.key === 'Enter') {
-        event.preventDefault();
-        let val = textArea.value.trim();
-        if (val !== '') {
-            displayMessage(val);
-            textArea.value = '';
-        }
-    }
-});
+
 
 // function to display message
 function displayMessage(text) {
   const msgSpan = document.createElement('span');
   msgSpan.textContent = text;
+  msgSpan.className = 'user-reply'; 
   chatBox.appendChild(msgSpan);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
@@ -157,4 +196,27 @@ window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('dark');
     toggle.checked = true;
   }
+});
+
+
+
+
+
+fetch('http://127.0.0.1:5050/me', {
+  method: 'GET',
+  credentials: 'include' // 🔑 THIS sends session cookie
+})
+.then(res => res.json())
+.then(data => {
+  if (data.logged_in) {
+    console.log("Welcome:", data.username);
+    // maybe show username on screen?
+  } else {
+    // not logged in, redirect:
+    window.location.href = '/FrontEnd/Authorization/login.html';
+  }
+})
+.catch(err => {
+  console.error(err);
+  window.location.href = '/FrontEnd/Authorization/login.html';
 });

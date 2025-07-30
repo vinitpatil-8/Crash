@@ -316,6 +316,9 @@ body {
 .chatBox::-webkit-scrollbar{
   display: none;
 }
+.bot-reply{
+  align-self: flex-start;
+}
 .chatBox span{
   background-color: var(--surface-color);
   height: fit-content;

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crash is an advanced chatbot made using Python & Flask">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="auth-resp.css">
+    <title>Reset Password</title>
+</head>
+
+<body>
+    <div class="loading-screen">
+        <div class="wrapped">
+            <div class="loading-container">
+                <div class="loading-text">
+                    <span>L</span>
+                    <span>O</span>
+                    <span>A</span>
+                    <span>D</span>
+                    <span>I</span>
+                    <span>N</span>
+                    <span>G</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="wrapper">
+            <div class="title">
+                Reset Password
+            </div>
+            <form id="forgotForm">
+                <div class="field">
+                    <input type="text" id="username" required autocomplete="username">
+                    <label for="username">Username</label>
+                </div>
+                <div class="field">
+                    <input type="password" id="newPassword" required autocomplete="current-password">
+                    <label for="newPassword">Password</label>
+                </div>
+                
+                <div class="field" style="margin-top: 40px;">
+                    <input type="submit" value="Reset Password">
+                </div>
+                <div class="signup-link">
+                    Don't Have An Account ? <a href="signup.html">Signup now</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <script src="forgot.js"></script>
+</body>
+
+</html>

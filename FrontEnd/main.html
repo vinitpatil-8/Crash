@@ -25,7 +25,22 @@
 </div>
     <script>
 function mainPage() {
-    window.location.href = "Chat/chat.html";
+    // window.location.href = "Authorization/login.html";
+    fetch("http://127.0.0.1:5050/me", {
+    credentials: "include"
+  })
+  .then(res => {
+    if (res.ok) {
+      // ✅ Already logged in → go straight to chat
+      window.location.href = "Chat/chat.html";
+    }
+    else{
+        window.location.href = "Authorization/login.html";
+    }
+  })
+  .catch(err => {
+    console.log("User not logged in or session expired.");
+  });
 }
     </script>
 </body>
