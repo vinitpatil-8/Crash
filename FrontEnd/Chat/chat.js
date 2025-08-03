@@ -202,6 +202,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+// Login Protecting Page
 fetch('http://127.0.0.1:5050/me', {
   method: 'GET',
   credentials: 'include' // 🔑 THIS sends session cookie

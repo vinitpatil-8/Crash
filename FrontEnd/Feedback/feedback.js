@@ -1,5 +1,6 @@
-let loader = document.querySelector('.loading-screen'); // Loading Screen
-let mainContainer = document.querySelector('.container'); // About us Page
+let loader = document.querySelector(".loading-screen")
+let mainContainer = document.querySelector(".container")
+
 
 // loading screen 
 function loadScreen() {
@@ -7,8 +8,10 @@ function loadScreen() {
     mainContainer.style.display = "flex";
 }
 window.addEventListener("load", ()=>{
-    setTimeout(loadScreen, 3000)
-});
+    setTimeout(loadScreen, 300)
+})
+
+
 
 // Login Protecting Page
 fetch('http://127.0.0.1:5050/me', {

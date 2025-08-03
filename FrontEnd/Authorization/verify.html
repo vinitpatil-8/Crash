@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crash is an advanced chatbot made using Python & Flask">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="auth-resp.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <title>Verify Email</title>
+</head>
+
+<body>
+    <div class="loading-screen">
+        <div class="wrapped">
+            <div class="loading-container">
+                <div class="loading-text">
+                    <span>V</span>
+                    <span>E</span>
+                    <span>R</span>
+                    <span>I</span>
+                    <span>F</span>
+                    <span>Y</span>
+                    <span>!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title" style="text-align: center;">Email Sent <i class="fi fi-ss-check-circle" style="color: rgb(209, 209, 32); font-size: 0.9em;"></i></div>
+        <p class="info-text" style="text-align: center;">
+            A verification link has been sent to your email.<br>
+            Please check your inbox and click the link to verify your account.
+        </p>
+        <button  style="cursor: pointer; border: 1px solid black; border-radius: 2em; padding: 10px;" id="resend-btn" disabled>Resend Email (60s)</button>
+        <p id="countdown-text"></p>
+    </div>
+    <div class="alertBox">
+        <div class="alertContent">
+            <p class="alertMsg"></p>
+            <button onclick="closeAlert()">OK</button>
+        </div>
+    </div>
+    <script src="verify.js"></script>
+</body>
+
+</html>

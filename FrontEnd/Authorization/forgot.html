@@ -34,17 +34,17 @@
                 Reset Password
             </div>
             <form id="forgotForm">
-                <div class="field">
-                    <input type="text" id="username" required autocomplete="username">
-                    <label for="username">Username</label>
+                <div class="field" id="emailField">
+                    <input name="email" type="text" id="email" autocomplete="email">
+                    <label for="email">Email</label>
                 </div>
-                <div class="field">
-                    <input type="password" id="newPassword" required autocomplete="current-password">
-                    <label for="newPassword">Password</label>
+                <div class="field" id="passwordField">
+                    <input name="newPassword" type="password" id="newPassword" autocomplete="current-password">
+                    <label for="newPassword">New-Password</label>
                 </div>
                 
                 <div class="field" style="margin-top: 40px;">
-                    <input type="submit" value="Reset Password">
+                    <input type="submit" value="Reset Password" id="submitBtn">
                 </div>
                 <div class="signup-link">
                     Don't Have An Account ? <a href="signup.html">Signup now</a>
@@ -52,6 +52,12 @@
             </form>
         </div>
 
+    </div>
+    <div class="alertBox">
+            <div class="alertContent">
+                 <p class="alertMsg"></p> 
+                <button onclick="closeAlert()">OK</button>
+            </div>
     </div>
     <script src="forgot.js"></script>
 </body>

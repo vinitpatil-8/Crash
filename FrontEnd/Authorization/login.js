@@ -7,9 +7,23 @@ function loadScreen() {
     mainContainer.style.display = "grid";
 }
 window.addEventListener("load", ()=>{
-    setTimeout(loadScreen, 300)
+    setTimeout(loadScreen, 3000)
 })
 
+// Template Alert Show Function
+function showAlert(message) {
+  document.querySelector(".alertMsg").innerText = message;
+  document.querySelector(".alertBox").style.display = "flex";
+  mainContainer.classList.add("blurClass")
+  setTimeout(() => {
+    closeAlert()
+  }, 6000);
+}
+// Template Alert Hide Function
+function closeAlert() {
+  document.querySelector(".alertBox").style.display = "none";
+  mainContainer.classList.remove("blurClass")
+}
 
 const loginForm = document.getElementById('loginForm');
 
@@ -32,11 +46,16 @@ loginForm.addEventListener('submit', async function (e) {
 
     if (res.ok) {
       window.location.href = '/FrontEnd/Chat/chat.html';
+    } else if (res.status === 403) {
+      showAlert("Please verify your email before logging in.");
+      setTimeout(() => {
+        window.location.href = "verify.html";
+      }, 6000);
     } else {
-      alert(`❌ Error: ${data.error}`);
+      showAlert(`Error: ${data.error}`);
     }
   } catch (err) {
     console.error(err);
-    alert('⚠️ Network error. Try again.');
+    showAlert(' Network error \n Try again')
   }
 });
