@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Crash is an advanced chatbot made using Python & Flask">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel="stylesheet" href="feedback.css">
     <link rel="stylesheet" href="feedback-resp.css">
     <title>Feedback</title>
 </head>
+
 <body>
     <div class="loading-screen">
         <div class="wrapped">
@@ -26,15 +29,43 @@
             </div>
         </div>
     </div>
-    
-    <div class="container">
-        <!-- navbar -->
-         <div class="navbar">
-            <p class="goBack" onclick="location.href='/FrontEnd/Chat/chat.html';"><i class="fi fi-br-arrow-left"></i> <span>HOME</span></p>
-        </div>
-    </div>
 
+    <div class="container">
+
+
+        <!-- navbar -->
+        <div class="navbar">
+            <p class="goBack" onclick="location.href='/FrontEnd/Chat/chat.html';"><i class="fi fi-br-arrow-left"></i>
+                <span>HOME</span>
+            </p>
+        </div>
+
+        <!-- form -->
+        <section class="content">
+            <div class="feedback-description">
+                <h1 class="title">Got A FeedBack ?</h1>
+                <p class="subtitle">This is the place ! <br /> Your FeedBack means a lot to us !</p>
+            </div>
+            <form class="feedback-form">
+                <textarea class="feedback-form__subject" cols="50" rows="3" name="short"
+                    placeholder="What's This About ? (eg. Compliment, Complaint, Suggestion..)"></textarea>
+
+                <textarea class="feedback-form__message" cols="50" name="detail"
+                    placeholder="Write Your Detailed Feedback Here..." rows="10"></textarea>
+
+                <button class="feedback-form__submit" id="btnofreview">Sumbit</button>
+            </form>
+        </section>
+    </div>
+    <!-- thanking and redirecting -->
+        <div class="alertBox">
+            <div class="alertContent">
+                <p class="alertMsg"></p>
+                <button onclick="closeAlert()">OK</button>
+            </div>
+        </div>
 
     <script src="feedback.js"></script>
 </body>
+
 </html>

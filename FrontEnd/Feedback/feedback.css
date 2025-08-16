@@ -5,6 +5,8 @@ body {
   padding: 0;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  font-family: Poppins, sans-serif;
+  background-color: #ecf2f7;
 }
 
 /* loader's css  */
@@ -207,4 +209,114 @@ body {
 }
 .navbar p:hover{
   color:#00BFFF;
+}
+
+
+
+
+/* form css  */
+/* * {
+  font-weight: 300;
+  font-family: "Roboto", "Segoe Ui", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 29px;
+  margin: 0;
+} */
+
+button {
+  font-size: 14px;
+  background-color: #FDD85F;
+  padding: 12px 26px;
+  border-radius: 40px;
+  width: auto;
+  color: #3b4a67;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+textarea,
+.feedback-form__subject {
+  border: none;
+  background-image: none;
+  background-color: #fff;
+  box-shadow: none;
+  font-size: 14px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 0px;
+  resize: none;
+  box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.04);
+}
+
+.feedback-form__subject:hover,
+.feedback-form__subject:focus {
+  color: #000;
+}
+
+.content {
+  color: #5b6d91;
+  /* padding-top: 48px; */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  max-width: 980px;
+  justify-content: center;
+  height: 95vh;
+  width: 100%;
+}
+.content .feedback-description {
+  max-width: 310px;
+  padding-bottom: 72px;
+}
+.content .feedback-description .subtitle {
+  font-size: 16px;
+}
+.content .feedback-form {
+  /* min-width: 17.5em; */
+  padding-left: 4em;
+  display: flex;
+  flex-direction: column;
+}
+.content .feedback-form * {
+  margin-bottom: 16px;
+}
+.content .feedback-form button {
+  align-self: flex-end;
+}
+
+.alertBox{
+  position: fixed;
+  justify-self: center;
+  top: calc((100vh - 22vh) / 2);
+  width: 42vh;
+  height: 22vh;
+  background-color: white;
+  display: none;
+  justify-content: center;
+  z-index: 9999;
+  color: black;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+.alertContent{
+  padding: 20px 30px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.blurClass{
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
+.alertContent button{
+  color: white;
+  background-color: #4158d0;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.alertContent button:hover{
+  background-color: #3a4f9b;
+
 }

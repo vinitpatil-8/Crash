@@ -34,7 +34,8 @@ async function sendMessageToBot(message) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ message: message })
+    body: JSON.stringify({ message: message }),
+    credentials: 'include'
   });
 
   const data = await response.json();

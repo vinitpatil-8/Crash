@@ -307,6 +307,7 @@ form .pass-link a:hover,
 form .signup-link a:hover{
   text-decoration: underline;
 }
+/* alertbox css */
 .alertBox{
   position: fixed;
   justify-self: center;

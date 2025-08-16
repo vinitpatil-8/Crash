@@ -2,6 +2,18 @@
     .loading-text{
     font-size: 10vw;
   }
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .content .feedback-form {
+    padding-left: 0;
+    width: 90%;
+  }
+
+  button {
+    width: 100%;
+  }
 }
 
 

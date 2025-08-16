@@ -31,3 +31,7 @@ Thumbs.db
 # Node stuff (if ever added frontend tooling)
 node_modules/
 dist/
+
+# Instance and offload
+BackEnd/instance/
+BackEnd/offload/

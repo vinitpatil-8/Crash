@@ -6,7 +6,14 @@ main = Blueprint('main', __name__)
 # Route For Displaying Bots Message 
 @main.route('/chat', methods=['POST'])
 def chat():
-    data = request.get_json()
-    msg = data.get('message')
-    reply = get_reply(msg)
-    return jsonify({'reply': reply})
+    try:
+        data = request.get_json()
+        msg = data.get('message', '').strip()
+
+        if not msg:
+            return jsonify({"error":"Empty message"}), 400
+        
+        reply = get_reply(msg)
+        return jsonify({'reply': reply})
+    except Exception as e:
+        return jsonify({"error":str(e)}), 500
