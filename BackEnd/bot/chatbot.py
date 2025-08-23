@@ -1,66 +1,70 @@
-import os
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
-from peft import PeftModel
-
-# Paths
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL_PATH = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
-ADAPTER_PATH = os.path.join(BASE_DIR, "llm_training", "tinyllama-lora")
-
-# Load base model
-base_model = AutoModelForCausalLM.from_pretrained(
-    MODEL_PATH,
-    device_map="auto",
-    torch_dtype="auto"
-)
-
-# Load LoRA adapter
-model = PeftModel.from_pretrained(base_model, ADAPTER_PATH)
-model = model.merge_and_unload()
-# Load tokenizer
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-if tokenizer.pad_token is None:
-    tokenizer.pad_token = tokenizer.eos_token
-
-# Create pipeline
-chatbot = pipeline(
-    "text-generation",
-    model=model,
-    tokenizer=tokenizer,
-    device_map="auto"
-)
-
-# Global conversation memory
-conversation_history = []
-
-def build_prompt(history, msg):
-    intro = (
-        "You are Crash, a funny, slightly sarcastic but helpful AI assistant who remembers the user's name "
-        "and gives smart replies in a human tone. Never use cuss words or be disrespectful.\n\n"
-    )
-
-    chat = ""
-    for pair in history[-3:]:
-        chat += f"User: {pair.get('user', '')}\nCrash: {pair.get('bot', '')}\n"
-
-    chat += f"User: {msg}\nCrash:"
-    return intro + chat
+import requests
+import random
+from .datas import rarecase, fallbacks, selection_list, apis
 
 def get_reply(msg):
-    prompt = build_prompt(conversation_history, msg)
-    response = chatbot(
-        prompt,
-        max_length=100,
-        temperature=0.3,
-        top_p=0.9,
-        repetition_penalty=1.2,
-        truncation=True,
-        pad_token_id=tokenizer.pad_token_id,
-        num_return_sequences=1
-    )[0]['generated_text']
+    msg = msg.lower()
+    if msg in selection_list[0] or 'joke' in msg:
+        try:
+            res1 = requests.get(apis[0])
+            data1 = res1.json()
+            
+        except:
+            res2 = requests.get(apis[1])
+            data2 = res2.json()
+            reply = rarecase(f"{data2['setup']} ... {data2['delivery']}", 4)
+            return reply
+        else:
+            reply = rarecase(f"{data1['setup']} ... {data1['punchline']}", 4)
+            return reply
+    
+    elif msg in selection_list[1] or 'quote' in msg:
+        try:
+            res3 = requests.get(apis[2], timeout=5)
+            res3.raise_for_status()
+            data3 = res3.json()
+            content = data3.get("content", "No quote found.")
+            author = data3.get("author", "Unknown")
+            reply = rarecase(f'"{content}" — {author}', 4)
+            return reply
+        except:
+            reply = rarecase(random.choice(fallbacks[0]), 4)
+            return reply
 
-    reply = response.split("Crash:")[-1].strip()
-    reply = reply.split("User:")[0].strip()
+    elif msg in selection_list[2] or 'fact' in msg or 'fun' in msg:
+        try:
+            res4 = requests.get(apis[3])
+            headers = {"Accept": "application/json"}
+            res5 = requests.get(apis[4], headers=headers)
+            data4 = res5.json()
+            fact_list = [res4.text, data4["text"]]
+            print(fact_list)
+            reply = rarecase(random.choice(fact_list), 4)
+            return reply
+        except:
+            reply = rarecase(random.choice(fallbacks[1]), 4)
+            return reply
+        
+    elif 'special' in msg:
+        reply = "Here are some special commands\nType corresponding number or command:-\n4. What is your name ?\n5. Who made you ?\n6. How do i contribute ?"
+        return reply
+    
+    elif 'name' in msg or '4' in msg:
+        responses = ["Hey ! My Name is Crash !\nNice To Meet You !", "Howdy ! My Name is Crash !", "My Name is Crash ! Have a good Day !"]
+        reply = random.choice(responses)
+        return reply
+    
+    elif 'made' in msg or '5' in msg:
+        responses_1 = ["I was made by Vinit, a student at Sinhagad University Pune.\nHead To About us page to know more !", "Vinit - a student at Sinhagad University Pune. He made me during the start of his fresher year.\nTo know more head to About us page !", "I like the curiosity ! I was made by Vinit during the start of his fresher year !\nHead to About page to know more !"]
+        reply = random.choice(responses_1)
+        return reply
+    
+    elif 'contribute' in msg or '6' in msg or 'how do' in msg:
+        responses_2 = ["Our Code is open source ! Head to the link below or open it from about us page to Contribute !\nhttps://github.com/vinitpatil-8/Crash\n\nWe really appreciate your contributions !", "Contributions are much appreciated ! Head To The Link below or navigate to About us Page.\nhttps://github.com/vinitpatil-8/Crash"]
+        reply = random.choice(responses_2)
+        return reply
+        
 
-    conversation_history.append({"user": msg, "bot": reply})
-    return reply
+    else:
+        reply = "Select a number corresponding to your preference !"
+        return reply

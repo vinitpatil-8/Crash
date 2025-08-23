@@ -1,5 +1,6 @@
 # Bytecode
 __pycache__/
+__pycache__
 *.py[cod]
 
 # Virtual env
@@ -9,6 +10,7 @@ env/
 # Environment files
 .env
 .env.*
+!.env.example
 
 # Database
 *.sqlite3

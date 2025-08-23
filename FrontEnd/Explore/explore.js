@@ -8,7 +8,7 @@ function loadScreen() {
     mainContainer.style.display = "flex";
 }
 window.addEventListener("load", ()=>{
-    setTimeout(loadScreen, 3000)
+    setTimeout(loadScreen, 300)
 })
 
 

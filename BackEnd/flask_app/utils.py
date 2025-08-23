@@ -23,13 +23,11 @@ def verify_token(token, max_age=3600):
         return None
     
 def send_verification_email(email, token):
-    # verify_url = f"http://127.0.0.1:5050/verify/{token}"
     verify_url = url_for('auth.verify_email', token=token, _external=True)
     msg = Message(subject="Verify Your CrashBot Account",
                   sender=os.getenv("EMAIL_USER"),
                   recipients=[email])
     msg.body = f"Hello!\n\nClick The Link To Verify Your Account:\n{verify_url}\n\nIf This Wasnt You Ignore This Email"
-    # mail.send(msg)
     Thread(target=send_async_email, args=(current_app._get_current_object(), msg)).start()
 
 def send_reset_email(email, link):

@@ -17,16 +17,6 @@ import os
 auth = Blueprint('auth', __name__)
 s = URLSafeTimedSerializer("my_app_is_gonna_rock")
 
-# def send_verification_email(email, username):
-#     token = generate_token(email)
-#     verify_url = url_for('auth.verify_email', token=token, _external=True)
-
-#     msg = Message('Verify Your Email - Crash Bot',
-#                   sender='Crash Bot <noreply@crash.com>',
-#                   recipients=[email])
-#     msg.body = f"Hi {username},\n\nPlease click the link below to verify your email:\n{verify_url}\n\nThanks!"
-#     mail.send(msg)
-
 
 # Signup Route
 @auth.route('/signup', methods=['POST'])
@@ -87,11 +77,6 @@ def login():
     # Optional: if using Flask session 
     session['user_id'] = user.id
     session['username'] = user.username
-
-    # if remember:
-    #     session.permanent = True
-    # else:
-    #     session.permanent = False
 
     return jsonify({'message': 'Login successful', 'username': user.username}), 200
 
@@ -193,7 +178,6 @@ def verify_email(token):
     user.email_verification_token = None
     db.session.commit()
     send_welcome_email(user.email, user.username)
-    # return redirect("http://127.0.0.1:5500/FrontEnd/Authorization/login.html")
     response = make_response("", 302)
     response.headers["Location"] = "http://127.0.0.1:5500/FrontEnd/Authorization/login.html"
     return response

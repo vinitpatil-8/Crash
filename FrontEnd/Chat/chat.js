@@ -4,7 +4,6 @@ let sideBar = document.querySelector('.sidebar'); // Sidebar
 let main = document.querySelector('.main'); // main chat screen
 let chatBox = document.querySelector('.chatBox') // the chat box
 let textArea = document.querySelector('#txtBox'); // Typing area
-let microphone = document.querySelector('.micBtn'); // Microphone
 let typingBox = document.querySelector('.typingBox'); // The whole typing area
 let sidebarBtns = document.querySelector('.sidebarBtns'); // Sidebar buttons area
 let winWidth = window.innerWidth; // Get the width of the window
@@ -53,12 +52,23 @@ function showBotReply(message) {
   const msg = document.createElement('span');
   msg.className = 'bot-reply'; 
   msg.textContent = message;
+  msg.innerHTML = message.replace(/\n/g, "<br>"); // line breaks
+  msg.innerHTML = message.replace(/(https?:\/\/[^\s]+)/g,'<br><a href="$1" target="_blank" rel="noopener noreferrer">$1</a><br>'); // links
   chatBox.appendChild(msg);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-
-
+function openning() {
+  const opener = document.createElement('span');
+  opener.className = 'bot-reply';
+  let sentences = ["Select your preference :-", "What do u want today :-", "Make your choice :-", "Choose your option :-", "Take your pick :-"]
+  let random = Math.floor(Math.random()*sentences.length);
+  let selection = sentences[random];
+  let context = "(type a corresponding number)<br>"
+  opener.innerHTML = selection +"<br>"+ context + "<br><br>1. &nbsp;A joke<br>2. A Motivational quote<br>3. A Fun-Fact"
+  chatBox.appendChild(opener);
+}
+openning()
 
 // loading screen 
 function loadScreen() {
@@ -66,7 +76,7 @@ function loadScreen() {
     mainContainer.style.display = "flex";
 }
 window.addEventListener("load", ()=>{
-    setTimeout(loadScreen, 3000)
+    setTimeout(loadScreen, 300)
 })
 
 
@@ -80,7 +90,6 @@ menuBtn.addEventListener('click', () => {
         main.style.width = "70%";
         textArea.disabled = "true" // disabling typing area
         main.style.opacity = "0.5" // making typing area and chat area opaque
-        microphone.classList.toggle("no") // disabling microphone hover
     }else{
         sideBar.style.width = "15%"; // Expand sidebar
         main.style.width = "85%";
@@ -102,7 +111,6 @@ closeBtn.addEventListener('click', () => {
         main.style.width = "90%";
         textArea.disabled = false // enabling typing area
         main.style.opacity = "1" // making typing area and chat as it was
-        microphone.classList.toggle("no") //enabling microphone hover
     }else{
         sideBar.style.width = "4%"; // Collapse sidebar
         main.style.width = "96%";
@@ -186,8 +194,6 @@ const toggle = document.getElementById('themeToggle');
 
 toggle.addEventListener('change', () => {
   document.body.classList.toggle('dark');
-  microphone.classList.toggle('fi-ss-circle-microphone');
-  microphone.classList.toggle('fi-ts-circle-microphone');
 });
 
 // checks if the user's OS has dark mode as preference
